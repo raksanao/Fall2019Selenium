@@ -36,7 +36,7 @@ public class BasicNavigation {
         driver.navigate().forward();
         System.out.println("Title:"+driver.getTitle());
         System.out.println("URL "+driver.getCurrentUrl());
-
+//ddd
         driver.navigate().refresh();
 
 
