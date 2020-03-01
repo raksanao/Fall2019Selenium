@@ -30,12 +30,13 @@ public class JumToNewWindow {
       driver.close();
     }
     public static void switchToWindorBasedOnTitel(String pageTitle,WebDriver driver){
-
+//ddd
         Set<String>windows=driver.getWindowHandles();
         for(String window:windows){
             driver.switchTo().window(window);
             if(driver.getTitle().equals(pageTitle)){
                 break;
+
             }
         }
     }
