@@ -5,8 +5,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MyFirstSeleniumScript {
     public static void main(String[] args) {
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver drive= new ChromeDriver();
-        drive.get("http://google.com");
+WebDriverManager.chromedriver().setup();
+ChromeDriver dr=new ChromeDriver();
+dr.get("http://facebook.com");
+
+
     }
+
+//        WebDriverManager.chromedriver().setup();
+//        ChromeDriver drive= new ChromeDriver();
+//        drive.get("http://google.com");
+//    }
 }
