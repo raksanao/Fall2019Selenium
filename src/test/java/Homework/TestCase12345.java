@@ -17,9 +17,6 @@ public class TestCase12345 {
 
     private String URL="https://practice-cybertekschool.herokuapp.com/";
     private By dateOfBirthBy=By.name("birthday");
-   // private By cPlusBy=By.xpath("/html/body/div[1]/div[2]/div/div/div/div/form/div[11]/div/div[1]/input");
-   // private By javaBy=By.id("inlineCheckbox2");
-    //private By javacsriptBy=By.id("inlineCheckbox3");
    private By firstNameBy=By.name("firstname");
    private By lastNameBy=By.name("lastname");
     private By userNameBy=By.name("username");
@@ -41,18 +38,19 @@ public class TestCase12345 {
    //Test case#1
 @Test(description = "Verify warning message displayed")
 public void verifyWarninMsgDisplayed() {
-    driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/ul/li[40]/a")).click();
+
+driver.findElement(By.xpath("//a[text()='Registration Form']")).click();
     BrowserUtils.wait(5);
     driver.findElement(dateOfBirthBy).sendKeys("wrong_dob");
     BrowserUtils.wait(4);
     String expected = "The date of birth is not valid";
-    String actual = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/form/div[8]/div/small[2]")).getText();
+    String actual=driver.findElement(By.xpath("//small[@class='help-block'and contains(text(),'The date of birth is not valid')]")).getText();
     Assert.assertEquals(expected, actual);
 }
 //Test Case#2
 @Test(description = "verify if java c++ javascript displayed")
 public void verifyIfJavaCJavaScriptDisplayed() {
-    driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/ul/li[40]/a")).click();
+    driver.findElement(By.xpath("//a[text()='Registration Form']")).click();
 
     driver.findElement(cPlusBy).isDisplayed();
     driver.findElement(javaBy).isDisplayed();
@@ -63,7 +61,7 @@ public void verifyIfJavaCJavaScriptDisplayed() {
 //Test case#3
 @Test(description = "Enter only one alphabbetic character")
 public void enterAlphabeticInUserName(){
-    driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/ul/li[40]/a")).click();
+    driver.findElement(By.xpath("//a[text()='Registration Form']")).click();
     driver.findElement(firstNameBy).sendKeys("a");
     BrowserUtils.wait(3);
     WebElement warningMasg=driver.findElement(By.xpath("//small[text()='first name must be more than 2 and less than 64 characters long']"));
@@ -73,7 +71,7 @@ public void enterAlphabeticInUserName(){
 //Test case#4
 @Test(description = "Enter only one alphabetic character into last name input box")
 public void enterAlphabetinLastName(){
-    driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/ul/li[40]/a")).click();
+    driver.findElement(By.xpath("//a[text()='Registration Form']")).click();
     driver.findElement(lastNameBy).sendKeys("b");
     BrowserUtils.wait(4);
     WebElement warningMasg=driver.findElement(By.xpath("//small[text()='The last name must be more than 2 and less than 64 characters long']"));
@@ -83,7 +81,7 @@ public void enterAlphabetinLastName(){
 //Test case#5
 @Test(description = "Fill the form")
 public void fillRegistrationForm(){
-    driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/ul/li[40]/a")).click();
+    driver.findElement(By.xpath("//a[text()='Registration Form']")).click();
     driver.findElement(firstNameBy).sendKeys("Matilda");
     driver.findElement(lastNameBy).sendKeys("Dendalion");
     driver.findElement(userNameBy).sendKeys("Avgustin");
