@@ -1,5 +1,10 @@
 package com.automation.utulities;
 
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class BrowserUtils {
     public static void wait(int seconds) {
         try {
@@ -9,5 +14,20 @@ public class BrowserUtils {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Pause test for some time
+     *
+     * @param seconds
+     */
+
+
+    public static List<String> getTextFromWebElements(List<WebElement> elements) {
+        List<String> textValues = new ArrayList<>();
+        for (WebElement element : elements) {
+            textValues.add(element.getText());
+        }
+        return textValues;
     }
 }
